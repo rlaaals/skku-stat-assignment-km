@@ -20,10 +20,10 @@ function med(numbers){
     result = 0
     
     if (len % 2 === 0){
-        result = (num2[len/2 -1] + num2[len/2])/2
+        result = (numbers[len/2 -1] + numbers[len/2])/2
     }
     else {
-        result = num2[parseInt(len/2)]
+        result = numbers[parseInt(len/2)]
     }
     return result;
 }
@@ -55,14 +55,16 @@ function iqr(numbers){
     return quartile2(numbers)-quartile1(numbers);
 }
 function outlier(numbers){
+    numarray = [...numbers];
     let IQR = iqr(numbers)
     let Q1 = quartile1(numbers)
     let Q2 = quartile2(numbers)
 
     let outlier1 = Q1 - 1.5*IQR
     let outlier2 = Q2 + 1.5*IQR
-
-    for (var value of numbers){
+    
+    
+    for (var value of numarray){
         if (value < outlier1){
             console.log(value)
         }
